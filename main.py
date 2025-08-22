@@ -45,19 +45,19 @@ def getRandomQuote(ids: list, coll=coll):
 # print(getRandomQuote(ids=ids))
 from fastapi import FastAPI
 
-root = FastAPI()
+app = FastAPI()
 
 
-@root.get("/")
+@app.get("/")
 def home():
     return {"hello": "user", "welcome": "quote api"}
 
 
-@root.get("/quote")
+@app.get("/quote")
 def getQuote():
     return getRandomQuote(ids=ids)
 
 
-@root.get("/status")
+@app.get("/status")
 def status():
     return "i'am alive"
